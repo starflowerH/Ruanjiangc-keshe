@@ -1,0 +1,254 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/common/login",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/volunteer/home",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/volunteer/team-view",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "队伍查看"
+      }
+    },
+    {
+      "path": "pages/volunteer/qa-center",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/volunteer/profile",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/student/home",
+      "style": {
+        "navigationBarTitleText": "招生宣传平台"
+      }
+    },
+    {
+      "path": "pages/student/university-list",
+      "style": {
+        "navigationBarTitleText": "高校信息"
+      }
+    },
+    {
+      "path": "pages/student/ask-question",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "我要提问"
+      }
+    },
+    {
+      "path": "pages/student/my-questions",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "我的提问"
+      }
+    },
+    {
+      "path": "pages/student/qa-detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "问答详情"
+      }
+    },
+    {
+      "path": "pages/student/forum-detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "讨论详情"
+      }
+    },
+    {
+      "path": "pages/student/profile",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/volunteer/register",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "志愿者报名"
+      }
+    },
+    {
+      "path": "pages/volunteer/answer-question",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "回答问题"
+      }
+    },
+    {
+      "path": "pages/common/university-detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "高校详情"
+      }
+    },
+    {
+      "path": "pages/common/qa-detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "问答详情"
+      }
+    },
+    {
+      "path": "pages/common/my-favorites",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "我的收藏"
+      }
+    },
+    {
+      "path": "pages/common/my-comments",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "我的评论"
+      }
+    },
+    {
+      "path": "pages/common/forum-penalties",
+      "style": { "navigationStyle": "custom", "navigationBarTitleText": "处罚与申诉" }
+    },
+    {
+      "path": "pages/volunteer/forum-moderation",
+      "style": { "navigationStyle": "custom", "navigationBarTitleText": "本校论坛审核" }
+    },
+    {
+      "path": "pages/common/webview",
+      "style": {
+        "navigationBarTitleText": "详情"
+      }
+    },
+    {
+      "path": "pages/volunteer/captain-contacts",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "队长通讯录"
+      }
+    },
+    {
+      "path": "pages/admin/dashboard",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "管理后台"
+      }
+    },
+    {
+      "path": "pages/admin/audit-list",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "审核管理"
+      }
+    },
+    {
+      "path": "pages/admin/team-list",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "队伍列表"
+      }
+    },
+    {
+      "path": "pages/admin/student-list",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "高中生列表"
+      }
+    },
+    {
+      "path": "pages/student/qa-forum",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/common/edit-profile",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "编辑资料"
+      }
+    },
+    {
+      "path": "pages/student/notifications",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "消息通知"
+      }
+    },
+    {
+      "path": "pages/admin/team-audit",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "队伍角色审核"
+      }
+    },
+    {
+      "path": "pages/admin/teacher-audit",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "老师审核"
+      }
+    },
+    {
+      "path": "pages/teacher/login",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "老师登录"
+      }
+    },
+    {
+      "path": "pages/teacher/home",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "老师端首页"
+      }
+    },
+    {
+      "path": "pages/teacher/promotion",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "宣传资料管理"
+      }
+    },
+    {
+      "path": "pages/teacher/team-manage",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "组队管理"
+      }
+    },
+    {
+      "path": "pages/teacher/team-detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "队伍详情"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "招生宣传",
+    "navigationBarBackgroundColor": "#6366f1",
+    "backgroundColor": "#f5f7fa"
+  }
+}

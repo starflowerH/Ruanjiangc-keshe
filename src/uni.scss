@@ -1,0 +1,55 @@
+/* uni.scss - 全局样式变量 */
+
+/* ========== 浅蓝主题色系 ========== */
+/* 主色: 柔和浅蓝(高级感), 各页面硬编码色将统一收敛到此处 */
+$primary-color: #5B9BD5;          /* 主色-浅蓝 */
+$primary-light: #8FC1EC;          /* 浅蓝-亮 */
+$primary-lighter: #E8F1FA;        /* 浅蓝-极淡(背景/标签用) */
+$primary-dark: #4A8BC4;           /* 浅蓝-深(渐变端点/按压态) */
+$primary-gradient: linear-gradient(135deg, #6FB1E5 0%, #5B9BD5 55%, #4A8BC4 100%);
+$primary-gradient-soft: linear-gradient(135deg, #E8F1FA 0%, #F5F9FD 100%);
+
+/* 功能色 */
+$success-color: #52c41a;
+$warning-color: #faad14;
+$danger-color: #ff6b6b;
+$info-color: #5B9BD5;
+
+/* 中性色 */
+$text-primary: #1F2937;           /* 主文字-深灰蓝 */
+$text-secondary: #6B7280;         /* 次文字 */
+$text-placeholder: #9CA3AF;
+$text-disabled: #D1D5DB;
+
+$bg-color: #F2F6FB;               /* 页面背景-淡蓝灰 */
+$bg-white: #ffffff;
+$bg-card: #ffffff;
+$border-color: #E5EDF5;           /* 边框-浅蓝灰 */
+$divider-color: #F0F4F9;
+
+/* 圆角(更柔和的圆角增加高级感) */
+$radius-sm: 12rpx;
+$radius-md: 16rpx;
+$radius-lg: 20rpx;
+$radius-xl: 28rpx;
+$radius-round: 999rpx;
+
+/* 阴影(柔和弥散, 更高级) */
+$shadow-sm: 0 2rpx 10rpx rgba(91, 155, 213, 0.08);
+$shadow-md: 0 6rpx 20rpx rgba(91, 155, 213, 0.12);
+$shadow-lg: 0 12rpx 32rpx rgba(91, 155, 213, 0.18);
+
+/* 字体大小 */
+$font-xs: 20rpx;
+$font-sm: 24rpx;
+$font-md: 28rpx;
+$font-lg: 32rpx;
+$font-xl: 36rpx;
+$font-xxl: 44rpx;
+
+/* 间距 */
+$spacing-xs: 8rpx;
+$spacing-sm: 16rpx;
+$spacing-md: 24rpx;
+$spacing-lg: 32rpx;
+$spacing-xl: 48rpx;

@@ -1,0 +1,131 @@
+# ================================================================
+#  高校招生宣传小程序 - 应用配置文件
+# ================================================================
+
+server:
+  port: 8090
+  # ---- 请求体大小限制（防DoS攻击） ----
+  # 需容纳图片上传（微信压缩头像常>1MB），与 Nginx client_max_body_size 10m 对齐。
+  # 具体文件大小上限由 spring.servlet.multipart + UploadController.MAX_FILE_SIZE 兜底。
+  tomcat:
+    max-http-form-post-size: 10MB    # POST表单最大10MB
+    max-swallow-size: 10MB           # 请求体最大10MB
+    connection-timeout: 30000        # 连接超时30秒
+    # 最大线程数（20w用户场景建议配合Nginx做负载均衡）
+    threads:
+      max: 200
+      min-spare: 20
+
+spring:
+  application:
+    name: mini-program
+
+  # ---- 图片/文件上传大小限制（与 UploadController.MAX_FILE_SIZE 一致） ----
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
+
+  # ---- 数据库配置 ----
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 连接串按环境变量占位，默认值回退到现网配置（localhost:3306/miniprogram）。
+    # 对方服务器若数据库异地/异端口/异库名，只需在 .env 覆盖 DB_HOST/DB_PORT/DB_NAME，无需改代码。
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:miniprogram}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${DB_USER:miniprogram}
+    # 敏感凭据走环境变量（启动时注入），严禁写死在配置文件并提交仓库
+    password: ${DB_PASSWORD}
+
+  # ---- Jackson JSON序列化配置 ----
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    default-property-inclusion: non_null   # null值不返回，减少响应体积
+
+# ---- MyBatis-Plus 配置 ----
+mybatis-plus:
+  # 实体类扫描包路径（多个用逗号分隔）
+  type-aliases-package: com.demo.miniprogram.entity
+  configuration:
+    # 下划线转驼峰（数据库 volunteer_id → Java volunteerId），默认开启
+    map-underscore-to-camel-case: true
+    # SQL日志走 slf4j（不直接输出到 stdout；生产环境统一由日志级别控制）
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  global-config:
+    db-config:
+      # 主键类型：AUTO=数据库自增
+      id-type: auto
+      # 逻辑删除字段名（暂不使用）
+      # logic-delete-field: deleted
+      # logic-delete-value: 1
+      # logic-not-delete-value: 0
+
+# ---- JWT 配置 ----
+jwt:
+  # 签名密钥（生产环境请使用强随机字符串，至少256位）
+  # 生成方式：openssl rand -base64 64
+  # 敏感凭据走环境变量，严禁写死在配置文件并提交仓库
+  secret: ${JWT_SECRET}
+  # Token过期时间（秒），默认7天 = 604800 秒
+  expire-seconds: 604800
+
+# ---- 微信小程序/公众号配置 ----
+# 获取方式：登录微信公众平台 https://mp.weixin.qq.com
+#   开发 → 开发管理 → 开发设置 → 开发者ID
+wechat:
+  # 小程序 AppID
+  miniapp-appid: wxa1ddf4f487f71ff8
+  # 小程序 AppSecret（敏感凭据走环境变量）
+  miniapp-secret: ${WX_MINIAAPP_SECRET}
+  # 公众号 AppID（如果同时用公众号H5的话）
+  mp-appid: wx0000000000000000
+  # 公众号 AppSecret
+  mp-secret: your_mp_secret_here
+  # 模板消息ID - 新问题通知大学生模板
+  template-new-question: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  # 模板消息ID - 新回复通知高中生模板
+  template-new-answer: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# ---- 微信登录场景说明 ----
+# 【场景A - 静默登录】 前端只传 code，后端返回JWT，不获取手机号
+# 【场景B - 登录+一键绑手机号】 前端传 code + phoneCode，
+#          后端调微信 getuserphonenumber 接口直接用code换手机号（推荐）
+# 【场景C - 单独绑定手机号】 已有JWT登录态，调 POST /api/auth/bind-phone 绑手机号
+#
+# 前端关键代码：
+#   1. 登录：wx.login() → 拿到 code
+#   2. 获取手机号按钮：<button open-type="getPhoneNumber" bindgetphonenumber="...">
+#   3. 回调中取 e.detail.code → 传给后端（新版直接用code换手机号，无需解密）
+
+# ---- Knife4j API 文档配置 ----
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.demo.miniprogram.controller
+
+# ---- 日志配置 ----
+logging:
+  level:
+    root: INFO
+    # 业务包 INFO（避免 DEBUG 输出 SQL 与敏感数据到日志；排查问题时可临时调回 DEBUG）
+    com.demo.miniprogram: INFO
+    com.demo.miniprogram.security: WARN  # 安全组件日志保持WARN级别
+
+# ---- Sentry 错误监控配置 ----
+sentry:
+  # 敏感 DSN 走环境变量
+  dsn: ${SENTRY_DSN:}
+  environment: production
+  # 关闭默认 PII 采集（避免用户 openid/手机号等个人信息上报到 Sentry）
+  send-default-pii: false
+  traces-sample-rate: 0

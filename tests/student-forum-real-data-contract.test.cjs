@@ -1,0 +1,23 @@
+const assert = require('assert')
+const fs = require('fs')
+
+const source = fs.readFileSync('src/components/StudentForumPrototype.vue', 'utf8')
+
+assert.match(source, /qaApi\.getQADetail\(/, '讨论详情必须从服务端重新读取帖子')
+assert.match(source, /commentApi\.getComments\(/, '讨论详情必须加载真实评论')
+assert.match(source, /commentApi\.addComment\(\{[\s\S]*parentId/, '回复必须携带 parentId')
+assert.match(source, /commentApi\.toggleCommentLike\(/, '评论必须支持真实点赞')
+assert.match(source, /forumApi\.reportPost\(\{[\s\S]*targetType/, '帖子和评论举报必须请求服务端')
+assert.match(source, /@longpress="openPostReport\(post\)"/, '帖子举报必须通过长按触发')
+assert.match(source, /@longpress="openCommentReport\(comment\)"/, '评论举报必须通过长按触发')
+assert.match(source, /class="discussion-page"/, '讨论详情必须使用独立全屏页面')
+assert.match(source, /class="nested-comments"/, '子回复必须使用独立的层级区域')
+assert.match(source, /class="reply-summary"/, '子回复必须支持展开和收起')
+assert.match(source, /<TabBar v-if="!detailPost"/, '进入讨论详情后不能继续显示底部导航栏')
+assert.match(source, /问答广场/, '高中生论坛列表页标题不能被详情页样式替换')
+assert.match(source, /高中生说/, '高中生论坛列表筛选必须保留原有分区')
+assert.match(source, /大学论坛/, '高中生论坛列表筛选必须保留大学论坛分区')
+assert.match(source, /questionContent/, '帖子内容必须兼容 questionContent 字段')
+assert.doesNotMatch(source, /@tap\.stop="report\(post\)"/, '列表中不能保留容易误触的明面举报按钮')
+
+console.log('Student forum real-data contract passed')

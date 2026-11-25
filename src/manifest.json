@@ -1,0 +1,29 @@
+{
+  "name": "招生宣传系统",
+  "appid": "wxa1ddf4f487f71ff8",
+  "description": "招生宣传管理系统 - 连接大学与高中",
+  "versionName": "1.0.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "uniStatistics": {
+    "enable": false
+  },
+  "mp-weixin": {
+    "appid": "wxa1ddf4f487f71ff8",
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "postcss": true,
+      "minified": true
+    },
+    "usingComponents": true,
+    "optimization": {
+      "subPackages": true
+    },
+    "permission": {
+      "scope.userLocation": {
+        "desc": "用于获取您的位置信息"
+      }
+    }
+  }
+}

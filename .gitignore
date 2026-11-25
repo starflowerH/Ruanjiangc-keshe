@@ -1,0 +1,29 @@
+﻿node_modules/
+dist/
+backend/target/
+backend/app.log
+*.log
+.DS_Store
+
+# 微信小程序上传私钥（敏感文件，严禁提交）
+private.wxa1ddf4f487f71ff8.key
+*.key
+preview-qr.png
+preview-qrcode*.jpg
+
+# 环境变量/本地凭据
+.env
+.env.*
+*.local
+uploads/
+backup_university_non_guangdong.sql
+
+# 本地工具包、归档包、临时评审文档与IDE配置
+.tools/
+.codegraph/
+.idea/
+.vscode/
+*.zip
+*.tgz
+*.tar.gz
+*.docx

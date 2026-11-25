@@ -1,0 +1,6 @@
+-- 志愿者报名资料补充：仅增量变更，保留既有报名数据。
+ALTER TABLE volunteer
+  ADD COLUMN IF NOT EXISTS student_no VARCHAR(64) DEFAULT NULL COMMENT '学号' AFTER wechat_id,
+  ADD COLUMN IF NOT EXISTS gender VARCHAR(16) DEFAULT NULL COMMENT '性别' AFTER student_no,
+  ADD COLUMN IF NOT EXISTS email VARCHAR(128) DEFAULT NULL COMMENT '邮箱（与电话至少填写一项）' AFTER gender,
+  MODIFY COLUMN phone VARCHAR(20) DEFAULT NULL COMMENT '手机号码（与邮箱至少填写一项）';
